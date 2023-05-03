@@ -1,0 +1,14 @@
+
+1. NULL값 처리
+  - front에서 한번
+  - back에서 한번
+
+2. 정규표현식
+ - front에서 한번
+ - back에서 한번
+
+3. button click 이벤트와 enter press 이벤트 동시 적용
+    - click은 당연히 button에 이벤트 발생을 걸어주는데
+    - enter press도 button에 이를 걸어줘야할 것 같지만 // input에 이벤트 발생을 걸어줘야한다!!
+
+
