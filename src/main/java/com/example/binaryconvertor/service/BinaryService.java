@@ -32,11 +32,11 @@ public class BinaryService {
             num.setEight(Integer.toString(decimal,8));
             num.setNine(Integer.toString(decimal,9));
 
-            num.setEleven(Integer.toString(decimal,11));
-            num.setTwelve(Integer.toString(decimal,12));
-            num.setThirteen(Integer.toString(decimal,13));
-            num.setFourteen(Integer.toString(decimal,14));
-            num.setFifthteen(Integer.toString(decimal,15));
+            num.setEleven(Integer.toString(decimal,11).toUpperCase());
+            num.setTwelve(Integer.toString(decimal,12).toUpperCase());
+            num.setThirteen(Integer.toString(decimal,13).toUpperCase());
+            num.setFourteen(Integer.toString(decimal,14).toUpperCase());
+            num.setFifthteen(Integer.toString(decimal,15).toUpperCase());
 
         } else if (decimalNum.equals("")) {
             num.setCheck(false);
@@ -57,7 +57,7 @@ public class BinaryService {
 
         if (Pattern.matches(pattern, binaryNum)) {
             int decimal = Integer.parseInt(binaryNum,2);
-            String hexa = Integer.toHexString(decimal).toUpperCase();;
+            String hexa = Integer.toHexString(decimal).toUpperCase();
             String decimalString = Integer.toString(decimal);
 
             num.setDecimalNum(decimalString);
@@ -72,11 +72,11 @@ public class BinaryService {
             num.setEight(Integer.toString(decimal,8));
             num.setNine(Integer.toString(decimal,9));
 
-            num.setEleven(Integer.toString(decimal,11));
-            num.setTwelve(Integer.toString(decimal,12));
-            num.setThirteen(Integer.toString(decimal,13));
-            num.setFourteen(Integer.toString(decimal,14));
-            num.setFifthteen(Integer.toString(decimal,15));
+            num.setEleven(Integer.toString(decimal,11).toUpperCase());
+            num.setTwelve(Integer.toString(decimal,12).toUpperCase());
+            num.setThirteen(Integer.toString(decimal,13).toUpperCase());
+            num.setFourteen(Integer.toString(decimal,14).toUpperCase());
+            num.setFifthteen(Integer.toString(decimal,15).toUpperCase());
         } else if (binaryNum.equals("")) {
             num.setCheck(false);
         } else {
@@ -113,11 +113,11 @@ public class BinaryService {
             num.setEight(Integer.toString(decimal,8));
             num.setNine(Integer.toString(decimal,9));
 
-            num.setEleven(Integer.toString(decimal,11));
-            num.setTwelve(Integer.toString(decimal,12));
-            num.setThirteen(Integer.toString(decimal,13));
-            num.setFourteen(Integer.toString(decimal,14));
-            num.setFifthteen(Integer.toString(decimal,15));
+            num.setEleven(Integer.toString(decimal,11).toUpperCase());
+            num.setTwelve(Integer.toString(decimal,12).toUpperCase());
+            num.setThirteen(Integer.toString(decimal,13).toUpperCase());
+            num.setFourteen(Integer.toString(decimal,14).toUpperCase());
+            num.setFifthteen(Integer.toString(decimal,15).toUpperCase());
         } else if (hexaDecimalNum.equals("")) {
             num.setCheck(false);
         } else {
