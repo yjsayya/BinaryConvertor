@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/data.css">
+    <title>data</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Jua', sans-serif;
+    }
+    body {
+        padding-top: 50px;
+    }
+</style>
+<body>
+    <div class="btns">
+        <button id="bitBtn">bit</button>
+        <button id="byteBtn">byte</button>
+        <button id="kbBtn">KB</button>
+    </div>
+    <div class="btns">
+        <button id="mbBtn">MB</button>
+        <button id="gbBtn">GB</button>
+        <button id="tbBtn">TB</button>
+    </div>
+    <div class="btns">
+        <button id="pbBtn">PB</button>
+        <button id="ebBtn">EB</button>
+    </div>
+
+
+    <div class="data_wrapper">
+        <h3>data 단위 변환기</h3>
+        <div class="data_form_wrapper" id="data_form_wrapper">
+            <form class="data_form" id="data_bit_form" method="post">
+                <p>
+                    <input type="text" placeholder="bit" name="bitInfo" id="data_bit_input" required>
+                    <button type="reset" id="data_bit_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="data_form" id="data_byte_form" method="post">
+                <p>
+                    <input type="text" placeholder="byte" name="byteInfo" id="data_byte_input" required>
+                    <button type="reset" id="data_byte_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="data_form" id="data_kb_form" method="post">
+                <p>
+                    <input type="text" placeholder="KB" name="kbInfo" id="data_kb_input" required>
+                    <button type="reset" id="data_kb_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="data_form" id="data_mb_form" method="post">
+                <p>
+                    <input type="text" placeholder="MB" name="mbInfo" id="data_mb_input" required>
+                    <button type="reset" id="data_mb_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="data_form" id="data_gb_form" method="post">
+                <p>
+                    <input type="text" placeholder="GB" name="gbInfo" id="data_gb_input" required>
+                    <button type="reset" id="data_gb_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="data_form" id="data_tb_form" method="post">
+                <p>
+                    <input type="text" placeholder="TB" name="tbInfo" id="data_tb_input" required>
+                    <button type="reset" id="data_tb_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="data_form" id="data_pb_form" method="post">
+                <p>
+                    <input type="text" placeholder="PB" name="pbInfo" id="data_pb_input" required>
+                    <button type="reset" id="data_pb_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="data_form" id="data_eb_form" method="post">
+                <p>
+                    <input type="text" placeholder="EB" name="ebInfo" id="data_eb_input" required>
+                    <button type="reset" id="data_eb_btn">변환</button>
+                </p>
+            </form>
+        </div>
+        <hr>
+        <ul>
+            <li>bit : <span id="bitInfo"></span></li>
+            <li>btye : <span id="byteInfo"></span></li>
+            <br>
+            <li>KB : <span id="kbInfo"></span></li>
+            <li>MB : <span id="mbInfo"></span></li>
+            <li>GB : <span id="gbInfo"></span></li>
+            <br>
+            <li>TB : <span id="tbInfo"></span></li>
+            <li>PB : <span id="pbInfo"></span></li>
+            <li>EB : <span id="ebInfo"></span></li>
+        </ul>
+    </div>
+
+</body>
+</html>
+<script src="/js/data.js"></script>

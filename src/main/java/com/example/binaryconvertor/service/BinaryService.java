@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.regex.Pattern;
 
 @Service
-public class BinaryconvertorService {
+public class BinaryService {
     /**
      * 10진수 --> 2진수, 16진수
      */

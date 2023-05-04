@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/binary.css">
+    <title>index</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Jua', sans-serif;
+    }
+</style>
+<body>
+    <div class="btns">
+        <button id="decimalBtn">10진수</button>
+        <button id="binaryBtn">2진수</button>
+        <button id="hexaBtn">16진수</button>
+    </div>
+    <div class="wrapper">
+        <h3>N진수 변환기</h3>
+        <div class="formWrapper" id="formWrapper">
+            <form id="formDecimal" method="post">
+                <p>
+                    <input type="text" placeholder="10진수" name="decimalNum" id="decimalNum" required>
+                    <button type="reset" id="changeDecimalBtn">변환</button>
+                </p>
+            </form>
+
+            <form id="formBinary" method="post">
+                <p>
+                    <input type="text" placeholder="2진수" name="binaryNum" id="binaryNum" required>
+                    <button type="reset" id="changeBinaryBtn">변환</button>
+                </p>
+            </form>
+
+            <form id="formHexa" method="post">
+                <p>
+                    <input type="text" placeholder="16진수" name="hexaDecimalNum" id="hexaDecimalNum" required>
+                    <button type="reset" id="changeHexaBtn">변환</button>
+                </p>
+            </form>
+        </div>
+
+        <hr>
+        <ul>
+            <li>2진수 : <span class="border" id="binary"></span></li>
+            <li>3진수 : <span id="three"></span></li>
+            <li>4진수 : <span id="four"></span></li>
+            <li>5진수 : <span id="five"></span></li>
+            <li>6진수 : <span id="six"></span></li>
+            <li>7진수 : <span id="seven"></span></li>
+            <li>8진수 : <span id="eight"></span></li>
+            <li>9진수 : <span id="nine"></span></li>
+            <li>10진수 : <span class="border" id="ten"></span></li>
+            <br>
+            <li>11진수 : <span id="eleven"></span></li>
+            <li>12진수 : <span id="twelve"></span></li>
+            <li>13진수 : <span id="thirteen"></span></li>
+            <li>14진수 : <span id="fourteen"></span></li>
+            <li>15진수 : <span id="fifthteen"></span></li>
+            <li>16진수 : <span class="border" id="hexa"></span></li>
+        </ul>
+    </div>
+</body>
+<script src="/js/binary.js"></script>
+</html>
