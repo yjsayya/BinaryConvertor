@@ -15,7 +15,7 @@ public class Service {
 
         if (Pattern.matches(pattern, decimalNum)) {
             int decimal = Integer.parseInt(decimalNum);
-            String hexa = Integer.toHexString(decimal);
+            String hexa = Integer.toHexString(decimal).toUpperCase();;
             String binary = Integer.toBinaryString(decimal);
 
             num.setDecimalNum(decimalNum);
@@ -55,7 +55,7 @@ public class Service {
 
         if (Pattern.matches(pattern, binaryNum)) {
             int decimal = Integer.parseInt(binaryNum,2);
-            String hexa = Integer.toHexString(decimal);
+            String hexa = Integer.toHexString(decimal).toUpperCase();;
             String decimalString = Integer.toString(decimal);
 
             num.setDecimalNum(decimalString);
@@ -97,7 +97,7 @@ public class Service {
 
             String decimalString = Integer.toString(decimal);
             String binary = Integer.toBinaryString(decimal);
-            String hexa = Integer.toHexString(decimal);
+            String hexa = Integer.toHexString(decimal).toUpperCase();
 
             num.setDecimalNum(decimalString);
             num.setHexaDecimalNum(hexa);
