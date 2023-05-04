@@ -1,10 +1,12 @@
-package com.example.binaryconvertor;
+package com.example.binaryconvertor.service;
+
+import com.example.binaryconvertor.DTO.Num;
+import org.springframework.stereotype.Service;
 
 import java.util.regex.Pattern;
 
-@org.springframework.stereotype.Service
-public class Service {
-
+@Service
+public class BinaryconvertorService {
     /**
      * 10진수 --> 2진수, 16진수
      */
@@ -125,4 +127,4 @@ public class Service {
         return num;
     }
 
-} // Service
+} // binary convertor service

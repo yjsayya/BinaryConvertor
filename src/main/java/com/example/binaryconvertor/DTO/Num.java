@@ -1,4 +1,4 @@
-package com.example.binaryconvertor;
+package com.example.binaryconvertor.DTO;
 
 import lombok.Getter;
 import lombok.Setter;
