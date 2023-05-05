@@ -38,8 +38,6 @@ public class BinaryService {
             num.setFourteen(Integer.toString(decimal,14).toUpperCase());
             num.setFifthteen(Integer.toString(decimal,15).toUpperCase());
 
-        } else if (decimalNum.equals("")) {
-            num.setCheck(false);
         } else {
             num.setCheck(false);
         }

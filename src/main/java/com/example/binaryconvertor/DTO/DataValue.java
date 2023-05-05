@@ -1,12 +1,14 @@
 package com.example.binaryconvertor.DTO;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter
-@AllArgsConstructor
+@NoArgsConstructor
 public class DataValue {
+
+    private boolean check = true;
 
     private String bitInfo;
     private String byteInfo;
@@ -17,4 +19,14 @@ public class DataValue {
     private String pbInfo;
     private String ebInfo;
 
+    public DataValue(String bitInfo, String byteInfo, String kbInfo, String mbInfo, String gbInfo, String tbInfo, String pbInfo, String ebInfo) {
+        this.bitInfo = bitInfo;
+        this.byteInfo = byteInfo;
+        this.kbInfo = kbInfo;
+        this.mbInfo = mbInfo;
+        this.gbInfo = gbInfo;
+        this.tbInfo = tbInfo;
+        this.pbInfo = pbInfo;
+        this.ebInfo = ebInfo;
+    }
 } // data dto
