@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/length.css">
+    <title>length</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Jua', sans-serif;
+    }
+    body {
+        padding-top: 50px;
+    }
+</style>
+<body>
+    <div class="btns">
+        <button id="mmBtn">mm</button>
+        <button id="cmBtn">cm</button>
+        <button id="mBtn">m</button>
+        <button id="kmBtn">km</button>
+    </div>
+    <div class="btns">
+        <button id="inchBtn">inch</button>
+        <button id="ftBtn">ft</button>
+        <button id="mileBtn">mile</button>
+        <button id="yardBtn">yard</button>
+    </div>
+    <div class="btns">
+        <button id="jaBtn">자</button>
+        <button id="ganBtn">간</button>
+        <button id="riBtn">리</button>
+        <button id="jungBtn">정</button>
+    </div>
+
+    <div class="length_wrapper">
+        <h3>Length 단위 변환기</h3>
+        <div class="length_form_wrapper" id="length_form_wrapper">
+            <form class="length_form" id="length_mm_form" method="post">
+                <p>
+                    <input type="text" placeholder="mm" name="mmInfo" id="length_mm_input" required>
+                    <button type="reset" id="length_mm_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="length_form" id="length_cm_form" method="post">
+                <p>
+                    <input type="text" placeholder="cm" name="cmInfo" id="length_cm_input" required>
+                    <button type="reset" id="length_cm_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="length_form" id="length_m_form" method="post">
+                <p>
+                    <input type="text" placeholder="m" name="mmInfo" id="length_m_input" required>
+                    <button type="reset" id="length_m_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="length_form" id="length_km_form" method="post">
+                <p>
+                    <input type="text" placeholder="km" name="mmInfo" id="length_km_input" required>
+                    <button type="reset" id="length_km_btn">변환</button>
+                </p>
+            </form>
+            <!-- ------------------------------------------------------ -->
+            <form class="length_form" id="length_inch_form" method="post">
+                <p>
+                    <input type="text" placeholder="inch" name="inchInfo" id="length_inch_input" required>
+                    <button type="reset" id="length_inch_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="length_form" id="length_yard_form" method="post">
+                <p>
+                    <input type="text" placeholder="yard" name="yardInfo" id="length_yard_input" required>
+                    <button type="reset" id="length_yard_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="length_form" id="length_mile_form" method="post">
+                <p>
+                    <input type="text" placeholder="mile" name="mileInfo" id="length_mile_input" required>
+                    <button type="reset" id="length_mile_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="length_form" id="length_ft_form" method="post">
+                <p>
+                    <input type="text" placeholder="ft" name="ftInfo" id="length_ft_input" required>
+                    <button type="reset" id="length_ft_btn">변환</button>
+                </p>
+            </form>
+            <!-- ------------------------------------------------------ -->
+            <form class="length_form" id="length_ja_form" method="post">
+                <p>
+                    <input type="text" placeholder="자" name="jaInfo" id="length_ja_input" required>
+                    <button type="reset" id="length_ja_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="length_form" id="length_gan_form" method="post">
+                <p>
+                    <input type="text" placeholder="간" name="ganInfo" id="length_gan_input" required>
+                    <button type="reset" id="length_gan_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="length_form" id="length_jung_form" method="post">
+                <p>
+                    <input type="text" placeholder="정" name="ftInfo" id="length_jung_input" required>
+                    <button type="reset" id="length_jung_btn">변환</button>
+                </p>
+            </form>
+
+            <form class="length_form" id="length_ri_form" method="post">
+                <p>
+                    <input type="text" placeholder="리" name="ftInfo" id="length_ri_input" required>
+                    <button type="reset" id="length_ri_btn">변환</button>
+                </p>
+            </form>
+        </div>
+        <hr>
+        <ul>
+            <li>mm : <span id="mmInfo"></span></li>
+            <li>cm : <span id="cmInfo"></span></li>
+            <li>m : <span id="mInfo"></span></li>
+            <li>km : <span id="kmInfo"></span></li>
+            <br>
+            <li>inch : <span id="inchInfo"></span></li>
+            <li>yard : <span id="yardInfo"></span></li>
+            <li>mile : <span id="mileInfo"></span></li>
+            <li>ft : <span id="ftInfo"></span></li>
+            <br>
+            <li>자 : <span id="jaInfo"></span></li>
+            <li>간 : <span id="ganInfo"></span></li>
+            <li>정 : <span id="jungInfo"></span></li>
+            <li>리 : <span id="riInfo"></span></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="/js/length.js"></script>
+
+<!--mm, cm, m, km-->
+<!--inch, yard, mile, ft-->
+<!--자 간 정 리-->

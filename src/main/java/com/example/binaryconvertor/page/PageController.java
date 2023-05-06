@@ -16,4 +16,11 @@ public class PageController {
         return "dataPage";
     }
 
+    @GetMapping("/length")
+    public String showLength() {
+        return "lengthPage";
+    }
+
+
+
 } // page controller

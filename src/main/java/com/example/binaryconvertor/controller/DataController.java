@@ -57,7 +57,7 @@ public class DataController {
 
     @PostMapping("/eb")
     public DataValue convertEb(@RequestParam String ebInfo) {
-        System.out.println("받은 TB 값 : " + ebInfo);
+        System.out.println("받은 EB 값 : " + ebInfo);
         return dataService.convertEb(ebInfo);
     }
 

@@ -98,8 +98,8 @@ document.getElementById('ebBtn').addEventListener('click', function() {
 
 
 // ====== 변환 요청 보내기 ======= //
-function postConvert(id, inputId, url) {
-    let num = $(id).serialize();
+function postConvert(formId, inputId, url) {
+    let num = $(formId).serialize();
     console.log(num);
 
     if (document.getElementById(inputId).value == "") {
@@ -122,6 +122,8 @@ function postConvert(id, inputId, url) {
                     document.getElementById('tbInfo').innerText = data["tbInfo"];
                     document.getElementById('pbInfo').innerText = data["pbInfo"];
                     document.getElementById('ebInfo').innerText = data["ebInfo"];
+
+                    document.getElementById('').style.color = 'red';
                 } else {
                     alert(">> Invalid Input. Please Do It Again <<")
                 }
