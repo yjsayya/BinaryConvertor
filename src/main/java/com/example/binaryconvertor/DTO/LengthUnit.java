@@ -8,7 +8,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class LengthUnit {
 
-    private boolean check;
+    private boolean check = true;
 
     private String mm;
     private String cm;
@@ -39,4 +39,5 @@ public class LengthUnit {
         this.ri = ri;
         this.jung = jung;
     }
-}
+
+} // length DTO

@@ -15,9 +15,9 @@ public class LengthController {
 
 
     @PostMapping("/mm")
-    public LengthUnit convertMm(@RequestParam String mmInfo) {
-        System.out.println("받은 mm 값 : " + mmInfo);
-        return lengthService.convertMm(mmInfo);
+    public LengthUnit convertMm(@RequestParam String mm) {
+        System.out.println("받은 mm 값 : " + mm);
+        return lengthService.convertMm(mm);
     }
 
     @PostMapping("/cm")
@@ -81,10 +81,6 @@ public class LengthController {
         System.out.println("받은 정 값 : " + jungInfo);
         return lengthService.convertJung(jungInfo);
     }
-
-
-
-
 
 
 } // length controller

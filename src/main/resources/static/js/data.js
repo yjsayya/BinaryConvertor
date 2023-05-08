@@ -1,100 +1,27 @@
-// ====== 입력 버튼 바꾸기 ======= //
-document.getElementById('bitBtn').addEventListener('click', function() {
-    document.getElementById('data_bit_form').style.display = 'block';
+// ========== 입력 버튼 바꾸기 ========== //
+function changePage(btnId, formId) {
+    document.getElementById(btnId).addEventListener('click', function() {
+        document.getElementById('data_bit_form').style.display = 'none';
+        document.getElementById('data_byte_form').style.display = 'none';
+        document.getElementById('data_kb_form').style.display = 'none';
+        document.getElementById('data_mb_form').style.display = 'none';
+        document.getElementById('data_gb_form').style.display = 'none';
+        document.getElementById('data_tb_form').style.display = 'none';
+        document.getElementById('data_pb_form').style.display = 'none';
+        document.getElementById('data_eb_form').style.display = 'none';
 
-    document.getElementById('data_byte_form').style.display = 'none';
-    document.getElementById('data_kb_form').style.display = 'none';
-    document.getElementById('data_mb_form').style.display = 'none';
-    document.getElementById('data_gb_form').style.display = 'none';
-    document.getElementById('data_tb_form').style.display = 'none';
-    document.getElementById('data_pb_form').style.display = 'none';
-    document.getElementById('data_eb_form').style.display = 'none';
-})
-// [BYTE]
-document.getElementById('byteBtn').addEventListener('click', function() {
-    document.getElementById('data_byte_form').style.display = 'block';
+        document.getElementById(formId).style.display = 'block';
+    })
+}
 
-    document.getElementById('data_bit_form').style.display = 'none';
-    document.getElementById('data_kb_form').style.display = 'none';
-    document.getElementById('data_mb_form').style.display = 'none';
-    document.getElementById('data_gb_form').style.display = 'none';
-    document.getElementById('data_tb_form').style.display = 'none';
-    document.getElementById('data_pb_form').style.display = 'none';
-    document.getElementById('data_eb_form').style.display = 'none';
-})
-// [KB]
-document.getElementById('kbBtn').addEventListener('click', function() {
-    document.getElementById('data_kb_form').style.display = 'block';
+changePage('bitBtn', 'data_bit_form');
+changePage('byteBtn', 'data_byte_form');
+changePage('kbBtn', 'data_kb_form');
+changePage('mbBtn', 'data_mb_form');
 
-    document.getElementById('data_bit_form').style.display = 'none';
-    document.getElementById('data_byte_form').style.display = 'none';
-    document.getElementById('data_mb_form').style.display = 'none';
-    document.getElementById('data_gb_form').style.display = 'none';
-    document.getElementById('data_tb_form').style.display = 'none';
-    document.getElementById('data_pb_form').style.display = 'none';
-    document.getElementById('data_eb_form').style.display = 'none';
-})
-// [MB]
-document.getElementById('mbBtn').addEventListener('click', function() {
-    document.getElementById('data_mb_form').style.display = 'block';
-
-    document.getElementById('data_bit_form').style.display = 'none';
-    document.getElementById('data_byte_form').style.display = 'none';
-    document.getElementById('data_kb_form').style.display = 'none';
-    document.getElementById('data_gb_form').style.display = 'none';
-    document.getElementById('data_tb_form').style.display = 'none';
-    document.getElementById('data_pb_form').style.display = 'none';
-    document.getElementById('data_eb_form').style.display = 'none';
-})
-// [GB]
-document.getElementById('gbBtn').addEventListener('click', function() {
-    document.getElementById('data_gb_form').style.display = 'block';
-
-    document.getElementById('data_bit_form').style.display = 'none';
-    document.getElementById('data_byte_form').style.display = 'none';
-    document.getElementById('data_kb_form').style.display = 'none';
-    document.getElementById('data_mb_form').style.display = 'none';
-    document.getElementById('data_tb_form').style.display = 'none';
-    document.getElementById('data_pb_form').style.display = 'none';
-    document.getElementById('data_eb_form').style.display = 'none';
-})
-// [TB]
-document.getElementById('tbBtn').addEventListener('click', function() {
-    document.getElementById('data_tb_form').style.display = 'block';
-
-    document.getElementById('data_bit_form').style.display = 'none';
-    document.getElementById('data_byte_form').style.display = 'none';
-    document.getElementById('data_kb_form').style.display = 'none';
-    document.getElementById('data_mb_form').style.display = 'none';
-    document.getElementById('data_gb_form').style.display = 'none';
-    document.getElementById('data_pb_form').style.display = 'none';
-    document.getElementById('data_eb_form').style.display = 'none';
-})
-// [PB]
-document.getElementById('pbBtn').addEventListener('click', function() {
-    document.getElementById('data_pb_form').style.display = 'block';
-
-    document.getElementById('data_bit_form').style.display = 'none';
-    document.getElementById('data_byte_form').style.display = 'none';
-    document.getElementById('data_kb_form').style.display = 'none';
-    document.getElementById('data_mb_form').style.display = 'none';
-    document.getElementById('data_gb_form').style.display = 'none';
-    document.getElementById('data_tb_form').style.display = 'none';
-    document.getElementById('data_eb_form').style.display = 'none';
-})
-
-// [EB]
-document.getElementById('ebBtn').addEventListener('click', function() {
-    document.getElementById('data_eb_form').style.display = 'block';
-
-    document.getElementById('data_bit_form').style.display = 'none';
-    document.getElementById('data_byte_form').style.display = 'none';
-    document.getElementById('data_kb_form').style.display = 'none';
-    document.getElementById('data_mb_form').style.display = 'none';
-    document.getElementById('data_gb_form').style.display = 'none';
-    document.getElementById('data_tb_form').style.display = 'none';
-    document.getElementById('data_pb_form').style.display = 'none';
-})
+changePage('gbBtn', 'data_gb_form');
+changePage('pbBtn', 'data_pb_form');
+changePage('ebBtn', 'data_eb_form');
 
 
 // ====== 변환 요청 보내기 ======= //
@@ -102,7 +29,7 @@ function postConvert(formId, inputId, url) {
     let num = $(formId).serialize();
     console.log(num);
 
-    if (document.getElementById(inputId).value == "") {
+    if (document.getElementById(inputId).value === "") {
         alert('>> Invalid Input. Please Do It Again <<');
     } else {
         $.ajax({
@@ -123,7 +50,6 @@ function postConvert(formId, inputId, url) {
                     document.getElementById('pbInfo').innerText = data["pbInfo"];
                     document.getElementById('ebInfo').innerText = data["ebInfo"];
 
-                    document.getElementById('').style.color = 'red';
                 } else {
                     alert(">> Invalid Input. Please Do It Again <<")
                 }

@@ -9,15 +9,18 @@ import java.util.regex.Pattern;
 public class LengthService {
 
 
-    public LengthUnit convertMm(String mmInfo) {
+    public LengthUnit convertMm(String mm) {
 
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
+        if (Pattern.matches(pattern, mm)) {
 
-        if (Pattern.matches(pattern, mmInfo)) {
-            double mmInt = Integer.parseInt(mmInfo);
-            String cmInfo = String.valueOf(mmInt / 10);
-            String mInfo = String.valueOf(mmInt / 1000);
-            String kmInfo = String.valueOf(mmInt / 1_000_000);
+            double mmInt = Integer.parseInt(mm);
+            double cmInt = mmInt / 10;
+            double mInt = cmInt / 100;
+
+            String cm = String.valueOf(mmInt / 10);
+            String m = String.valueOf(mmInt / 1000);
+            String km = String.valueOf(mmInt / 1_000_000);
 
             double inchInt = mmInt / 10 / 2.54;
             String inch = String.valueOf(inchInt);
@@ -25,8 +28,19 @@ public class LengthService {
             String yard = String.valueOf(inchInt / 36);
             String mile = String.valueOf(inchInt / 63_360);
 
+            // 1자 = 30.30303 cm
+            // 1간 = 181.818182cm == 약 1.8m
+            // 1정 = 10,909.0909cm == 약 109m
+            // 1리 = 392.727273m
+            double jaInt = mmInt * 0.0033;
 
-            return new LengthUnit();
+
+            String ja = String.valueOf(jaInt);
+            String gan = String.valueOf(181.818182 * cmInt);
+            String jung = String.valueOf(mInt * 109.090909);
+            String ri = String.valueOf(mInt * 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inch, ft, yard, mile, ja, gan, jung, ri);
 
         } else {
             LengthUnit lengthUnit = new LengthUnit();

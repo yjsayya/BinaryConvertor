@@ -39,12 +39,11 @@ changePage("jungBtn", "length_jung_form");
 
 // ====== 변환 요청 보내기 ======= //
 function postConvert(btnId, formId, inputId, url) {
-
     document.getElementById(btnId).addEventListener('click', function() {
         let num = $(formId).serialize();
         console.log(num);
 
-        if (document.getElementById(inputId).value == "") {
+        if (document.getElementById(inputId).value === "") {
             alert('>> Invalid Input. Please Do It Again <<');
         } else {
             $.ajax({
@@ -56,22 +55,21 @@ function postConvert(btnId, formId, inputId, url) {
                     console.log(data);
 
                     if (data["check"]) {
-                        document.getElementById('mmInfo').innerText = data["mmInfo"];
-                        document.getElementById('cmInfo').innerText = data["cmInfo"];
-                        document.getElementById('mInfo').innerText = data["mInfo"];
-                        document.getElementById('kmInfo').innerText = data["kmInfo"];
+                        document.getElementById('mmInfo').innerText = data["mm"];
+                        document.getElementById('cmInfo').innerText = data["cm"];
+                        document.getElementById('mInfo').innerText = data["m"];
+                        document.getElementById('kmInfo').innerText = data["km"];
 
-                        document.getElementById('inchInfo').innerText = data["inchInfo"];
-                        document.getElementById('yardInfo').innerText = data["yardInfo"];
-                        document.getElementById('mileInfo').innerText = data["mileInfo"];
-                        document.getElementById('ftInfo').innerText = data["ftInfo"];
+                        document.getElementById('inchInfo').innerText = data["inch"];
+                        document.getElementById('yardInfo').innerText = data["yard"];
+                        document.getElementById('mileInfo').innerText = data["mile"];
+                        document.getElementById('ftInfo').innerText = data["ft"];
 
-                        document.getElementById('jaInfo').innerText = data["jaInfo"];
-                        document.getElementById('ganInfo').innerText = data["ganInfo"];
-                        document.getElementById('jungInfo').innerText = data["jungInfo"];
-                        document.getElementById('riInfo').innerText = data["riInfo"];
+                        document.getElementById('jaInfo').innerText = data["ja"];
+                        document.getElementById('ganInfo').innerText = data["gan"];
+                        document.getElementById('jungInfo').innerText = data["jung"];
+                        document.getElementById('riInfo').innerText = data["ri"];
 
-                        document.getElementById('').style.color = 'red';
                     } else {
                         alert(">> Invalid Input. Please Do It Again <<")
                     }
@@ -86,18 +84,26 @@ function postConvert(btnId, formId, inputId, url) {
 
 }
 
-postConvert("length_mm_btn", "length_mm_btn", "length_mm_input", "/mm");
-postConvert("length_cm_btn", "length_cm_btn", "length_cm_input", "/cm");
-postConvert("length_m_btn", "length_m_btn", "length_m_input", "/m");
-postConvert("length_km_btn", "length_km_btn", "length_km_input", "/km");
 
-postConvert("length_inch_btn", "length_inch_btn", "length_inch_input", "/inch");
-postConvert("length_yard_btn", "length_yard_btn", "length_yard_input", "/yard");
-postConvert("length_mile_btn", "length_mile_btn", "length_mile_input", "/mile");
-postConvert("length_ft_btn", "length_ft_btn", "length_ft_input", "/ft");
+postConvert("length_mm_btn", "#length_mm_form", "length_mm_input", "/mm");
+postConvert("length_cm_btn", "#length_cm_form", "length_cm_input", "/cm");
+postConvert("length_m_btn", "#length_m_form", "length_m_input", "/m");
+postConvert("length_km_btn", "#length_km_form", "length_km_input", "/km");
 
-postConvert("length_ja_btn", "length_ja_btn", "length_ja_input", "/ja");
-postConvert("length_gan_btn", "length_gan_btn", "length_gan_input", "/gan");
-postConvert("length_ri_btn", "length_ri_btn", "length_ri_input", "/ri");
-postConvert("length_jung_btn", "length_jung_btn", "length_jung_input", "/jung");
+postConvert("length_inch_btn", "#length_inch_form", "length_inch_input", "/inch");
+postConvert("length_yard_btn", "#length_yard_form", "length_yard_input", "/yard");
+postConvert("length_mile_btn", "#length_mile_form", "length_mile_input", "/mile");
+postConvert("length_ft_btn", "#length_ft_form", "length_ft_input", "/ft");
 
+postConvert("length_ja_btn", "#length_ja_form", "length_ja_input", "/ja");
+postConvert("length_gan_btn", "#length_gan_form", "length_gan_input", "/gan");
+postConvert("length_ri_btn", "#length_ri_form", "length_ri_input", "/ri");
+postConvert("length_jung_btn", "#length_jung_form", "length_jung_input", "/jung");
+
+
+function pressEnter(event, formId, inputId, url) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        postConvert('#data_kb_form',"data_kb_input", "/kb");
+    }
+}
