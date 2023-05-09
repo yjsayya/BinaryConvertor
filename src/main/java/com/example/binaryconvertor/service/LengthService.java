@@ -1,6 +1,6 @@
 package com.example.binaryconvertor.service;
 
-import com.example.binaryconvertor.DTO.LengthUnit;
+import com.example.binaryconvertor.DTO.length.LengthUnit;
 import org.springframework.stereotype.Service;
 
 import java.util.regex.Pattern;
@@ -8,9 +8,7 @@ import java.util.regex.Pattern;
 @Service
 public class LengthService {
 
-
     public LengthUnit convertMm(String mm) {
-
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
         if (Pattern.matches(pattern, mm)) {
 
@@ -28,13 +26,7 @@ public class LengthService {
             String yard = String.valueOf(inchInt / 36);
             String mile = String.valueOf(inchInt / 63_360);
 
-            // 1자 = 30.30303 cm
-            // 1간 = 181.818182cm == 약 1.8m
-            // 1정 = 10,909.0909cm == 약 109m
-            // 1리 = 392.727273m
             double jaInt = mmInt * 0.0033;
-
-
             String ja = String.valueOf(jaInt);
             String gan = String.valueOf(181.818182 * cmInt);
             String jung = String.valueOf(mInt * 109.090909);
@@ -53,27 +45,61 @@ public class LengthService {
 
     public LengthUnit convertCm(String cmInfo) {
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
-
         if (Pattern.matches(pattern, cmInfo)) {
-            int mm = Integer.parseInt(cmInfo);
+            double cmDouble = Integer.parseInt(cmInfo);
+            double mmDouble = cmDouble * 10.0;
+            double mDouble = cmDouble / 100.0;
+            double kmDouble = mDouble / 1000.0;
 
-            return new LengthUnit();
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String inch = String.valueOf(mmDouble / 2.54);
+            String ft = String.valueOf(cmDouble / 30.48);
+            String yard = String.valueOf(cmDouble / 91.48);
+            String mile = String.valueOf(kmDouble / 1.609344);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inch, ft, yard, mile, ja, gan, jung, ri);
         } else {
             LengthUnit lengthUnit = new LengthUnit();
             lengthUnit.setCheck(false);
             return lengthUnit;
         }
 
-
     }
 
     public LengthUnit convertM(String mInfo) {
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
-
         if (Pattern.matches(pattern, mInfo)) {
-            int mm = Integer.parseInt(mInfo);
+            double mDouble = Integer.parseInt(mInfo);
 
-            return new LengthUnit();
+            double cmDouble = mDouble / 100.0;
+            double mmDouble = cmDouble * 10.0;
+            double kmDouble = mDouble / 1000.0;
+
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String inch = String.valueOf(mmDouble / 2.54);
+            String ft = String.valueOf(cmDouble / 30.48);
+            String yard = String.valueOf(cmDouble / 91.48);
+            String mile = String.valueOf(kmDouble / 1.609344);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inch, ft, yard, mile, ja, gan, jung, ri);
         } else {
             LengthUnit lengthUnit = new LengthUnit();
             lengthUnit.setCheck(false);
@@ -86,11 +112,28 @@ public class LengthService {
     public LengthUnit convertKm(String kmInfo) {
 
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
-
         if (Pattern.matches(pattern, kmInfo)) {
-            int mm = Integer.parseInt(kmInfo);
-            return new LengthUnit();
+            double kmDouble = Integer.parseInt(kmInfo);
+            double mDouble = kmDouble * 1000.0;
+            double cmDouble = mDouble * 100.0;
+            double mmDouble = cmDouble * 10.0;
 
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String inch = String.valueOf(mmDouble / 2.54);
+            String ft = String.valueOf(cmDouble / 30.48);
+            String yard = String.valueOf(cmDouble / 91.48);
+            String mile = String.valueOf(kmDouble / 1.609344);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inch, ft, yard, mile, ja, gan, jung, ri);
         } else {
             LengthUnit lengthUnit = new LengthUnit();
             lengthUnit.setCheck(false);
@@ -103,10 +146,31 @@ public class LengthService {
     public LengthUnit convertInch(String inchInfo) {
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
 
-        if (Pattern.matches(pattern, inchInfo)) {
-            int mm = Integer.parseInt(inchInfo);
 
-            return new LengthUnit();
+
+        if (Pattern.matches(pattern, inchInfo)) {
+            double inchDouble = Integer.parseInt(inchInfo);
+
+            double cmDouble = inchDouble * 2.54;
+            double mmDouble = cmDouble * 10.0;
+            double mDouble = cmDouble / 10.0;
+            double kmDouble = mDouble / 1000.0;
+
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String ft = String.valueOf(cmDouble / 30.48);
+            String yard = String.valueOf(cmDouble / 91.48);
+            String mile = String.valueOf(kmDouble / 1.609344);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inchInfo, ft, yard, mile, ja, gan, jung, ri);
         } else {
             LengthUnit lengthUnit = new LengthUnit();
             lengthUnit.setCheck(false);
@@ -120,9 +184,30 @@ public class LengthService {
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
 
         if (Pattern.matches(pattern, yardInfo)) {
-            int mm = Integer.parseInt(yardInfo);
 
-            return new LengthUnit();
+            double yardDouble = Integer.parseInt(yardInfo);
+
+            double cmDouble = yardDouble * 91.44;
+            double mmDouble = cmDouble * 10.0;
+            double mDouble = cmDouble / 10.0;
+            double kmDouble = mDouble / 1000.0;
+            // SI
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String inch = String.valueOf(cmDouble / 2.54);
+            String ft = String.valueOf(cmDouble / 30.48);
+            String yard = String.valueOf(cmDouble / 91.48);
+            String mile = String.valueOf(kmDouble / 1.609344);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inch, ft, yard, mile, ja, gan, jung, ri);
         } else {
             LengthUnit lengthUnit = new LengthUnit();
             lengthUnit.setCheck(false);
@@ -131,14 +216,32 @@ public class LengthService {
 
     }
 
-    public LengthUnit convertMile(String milemInfo) {
+    public LengthUnit convertMile(String mileInfo) {
 
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
+        if (Pattern.matches(pattern, mileInfo)) {
+            double mileDouble = Integer.parseInt(mileInfo);
 
-        if (Pattern.matches(pattern, milemInfo)) {
-            int mm = Integer.parseInt(milemInfo);
+            double kmDouble = mileDouble * 1.609344;
+            double mDouble = kmDouble / 1000.0;
+            double cmDouble = mDouble / 100.0;
+            double mmDouble = cmDouble * 10.0;
+            // SI
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String inch = String.valueOf(cmDouble / 2.54);
+            String ft = String.valueOf(cmDouble / 30.48);
+            String yard = String.valueOf(cmDouble / 91.48);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
 
-            return new LengthUnit();
+            return new LengthUnit(mm, cm, m, km, inch, ft, yard, mileInfo, ja, gan, jung, ri);
         } else {
             LengthUnit lengthUnit = new LengthUnit();
             lengthUnit.setCheck(false);
@@ -149,10 +252,29 @@ public class LengthService {
 
     public LengthUnit convertFt(String ftInfo) {
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
-
         if (Pattern.matches(pattern, ftInfo)) {
-            int mm = Integer.parseInt(ftInfo);
-            return new LengthUnit();
+            double ftDouble = Integer.parseInt(ftInfo);
+
+            double cmDouble = ftDouble * 30.48;
+            double mmDouble = cmDouble * 10.0;
+            double mDouble = cmDouble / 10.0;
+            double kmDouble = mDouble / 1000.0;
+            // SI
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String inch = String.valueOf(cmDouble / 2.54);
+            String yard = String.valueOf(cmDouble / 91.48);
+            String mile = String.valueOf(kmDouble / 1.609344);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inch, ftInfo, yard, mile, ja, gan, jung, ri);
 
         } else {
             LengthUnit lengthUnit = new LengthUnit();
@@ -164,11 +286,30 @@ public class LengthService {
 
     public LengthUnit convertJa(String jaInfo) {
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
-
         if (Pattern.matches(pattern, jaInfo)) {
-            int mm = Integer.parseInt(jaInfo);
+            double jaDouble = Integer.parseInt(jaInfo);
 
-            return new LengthUnit();
+            double cmDouble = jaDouble * 30.30303;
+            double mmDouble = cmDouble * 10.0;
+            double mDouble = cmDouble / 10.0;
+            double kmDouble = mDouble / 1000.0;
+            // SI
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String inch = String.valueOf(cmDouble / 2.54);
+            String ft = String.valueOf(cmDouble / 30.48);
+            String yard = String.valueOf(cmDouble / 91.48);
+            String mile = String.valueOf(kmDouble / 1.609344);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inch, ft, yard, mile, ja, gan, jung, ri);
         } else {
             LengthUnit lengthUnit = new LengthUnit();
             lengthUnit.setCheck(false);
@@ -181,9 +322,63 @@ public class LengthService {
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
 
         if (Pattern.matches(pattern, ganInfo)) {
-            int mm = Integer.parseInt(ganInfo);
+            double ganDouble = Integer.parseInt(ganInfo);
 
-            return new LengthUnit();
+            double cmDouble = ganDouble * 181.818182;
+            double mmDouble = cmDouble * 10.0;
+            double mDouble = cmDouble / 10.0;
+            double kmDouble = mDouble / 1000.0;
+            // SI
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String inch = String.valueOf(cmDouble / 2.54);
+            String ft = String.valueOf(cmDouble / 30.48);
+            String yard = String.valueOf(cmDouble / 91.48);
+            String mile = String.valueOf(kmDouble / 1.609344);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inch, ft, yard, mile, ja, gan, jung, ri);
+        } else {
+            LengthUnit lengthUnit = new LengthUnit();
+            lengthUnit.setCheck(false);
+            return lengthUnit;
+        }
+
+    }
+
+    public LengthUnit convertJung(String jungInfo) {
+        String pattern = "^[0-9]*$"; // 숫자만 있어야함
+        if (Pattern.matches(pattern, jungInfo)) {
+            double jungDouble = Integer.parseInt(jungInfo);
+
+            double cmDouble = jungDouble * 181.818182;
+            double mmDouble = cmDouble * 10.0;
+            double mDouble = cmDouble / 10.0;
+            double kmDouble = mDouble / 1000.0;
+            // SI
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String inch = String.valueOf(cmDouble / 2.54);
+            String ft = String.valueOf(cmDouble / 30.48);
+            String yard = String.valueOf(cmDouble / 91.48);
+            String mile = String.valueOf(kmDouble / 1.609344);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inch, ft, yard, mile, ja, gan, jung, ri);
         } else {
             LengthUnit lengthUnit = new LengthUnit();
             lengthUnit.setCheck(false);
@@ -195,11 +390,40 @@ public class LengthService {
     public LengthUnit convertRi(String riInfo) {
 
         String pattern = "^[0-9]*$"; // 숫자만 있어야함
+        // 1자 = 30.30303 cm
+        // 1간 = 181.818182cm == 약 1.8m
+        // 1정 = 10,909.0909cm == 약 109m
+        // 1리 = 392.727273m
+
+        // 1inch = 2.54cm
+        // 1ft = 30.48cm
+        // 1yard = 91.44cm
+        // 1mile = 1.609344
 
         if (Pattern.matches(pattern, riInfo)) {
-            int mm = Integer.parseInt(riInfo);
+            double riDouble = Integer.parseInt(riInfo);
 
-            return new LengthUnit();
+            double mDouble = riDouble * 392.727273;
+            double cmDouble = mDouble / 100.0;
+            double mmDouble = cmDouble * 10.0;
+            double kmDouble = mDouble / 1000.0;
+            // SI
+            String mm = String.valueOf(mmDouble);
+            String cm = String.valueOf(cmDouble);
+            String m = String.valueOf(mDouble);
+            String km = String.valueOf(kmDouble);
+            // inch, ft, yard, mile
+            String inch = String.valueOf(cmDouble / 2.54);
+            String ft = String.valueOf(cmDouble / 30.48);
+            String yard = String.valueOf(cmDouble / 91.48);
+            String mile = String.valueOf(kmDouble / 1.609344);
+            // 자 간 정 리
+            String ja = String.valueOf(cmDouble / 30.30303);
+            String gan = String.valueOf(cmDouble / 181.818182);
+            String jung = String.valueOf(mDouble / 109.090909);
+            String ri = String.valueOf(mDouble / 392.727273);
+
+            return new LengthUnit(mm, cm, m, km, inch, ft, yard, mile, ja, gan, jung, ri);
         } else {
             LengthUnit lengthUnit = new LengthUnit();
             lengthUnit.setCheck(false);
@@ -208,19 +432,5 @@ public class LengthService {
 
     }
 
-    public LengthUnit convertJung(String jungInfo) {
-        String pattern = "^[0-9]*$"; // 숫자만 있어야함
-
-        if (Pattern.matches(pattern, jungInfo)) {
-            int mm = Integer.parseInt(jungInfo);
-
-            return new LengthUnit();
-        } else {
-            LengthUnit lengthUnit = new LengthUnit();
-            lengthUnit.setCheck(false);
-            return lengthUnit;
-        }
-
-    }
 
 } // length service

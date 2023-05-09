@@ -45,3 +45,11 @@
 .length_wrapper input {
     margin-left: 13px;
 }
+
+ul {
+    padding: 0;
+}
+
+li {
+    margin-left: 22px;
+}
